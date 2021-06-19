@@ -1,0 +1,7 @@
+#!/bin/sh
+
+mkdir -p ~/Pictures/Screenshots
+
+filename=$(date +Screen-%d%m%y-%H%M%S)
+
+maim -s > ~/Pictures/Screenshots/"$filename"

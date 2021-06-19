@@ -1,0 +1,4 @@
+#!/bin/sh
+
+keymap="$XDG_CONFIG_HOME/x11/keymap.xkb"
+[ -f $keymap ] && xkbcomp $keymap $DISPLAY

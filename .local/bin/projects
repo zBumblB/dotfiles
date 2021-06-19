@@ -1,0 +1,27 @@
+#!/bin/sh
+
+function error() {
+	1>&2 echo "error: $@"
+	notify-send "Projects" "error: $@"
+	exit 1
+}
+
+dir="$PROJECTS"
+
+[ -z "$dir" ] && dir="$HOME/Documents/projects"
+
+[ ! -e "$dir" ] && error "$dir does not exist."
+
+[ ! -d "$dir" ] && error "$dir exists, but is not a directory."
+
+cd "$dir"
+
+proj=$(find * -maxdepth 0 2>/dev/null | dmenu)
+
+[ -z "$proj" ] && error "You did not select a project"
+
+[ ! -e "$proj" ] && mkdir "$proj"
+
+[ -d "$proj" ] && cd "$proj" || arg="$proj"
+
+st -e nvim $arg
