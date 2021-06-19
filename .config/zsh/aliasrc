@@ -1,0 +1,91 @@
+#!/bin/sh
+
+### automaticaly use sudo for some commands
+for i in mount umount sv; do
+	alias $i="sudo $i"
+done
+
+### open files automatically
+alias -s {md,py,txt,c,cpp,cxx,c++}="nvim"
+alias -s {cbr,cbz}="comicread"
+alias -s {pdf,ps,epub,djvu}="zathura --fork"
+
+alias -- -='\cd -' # this binds '-', not '--'
+
+alias f="sudo !!"
+
+alias \
+	e="$EDITOR" \
+	g="git" \
+	sdn="sudo shutdown -h now" \
+	p="sudo pacman"
+
+alias \
+	cp="cp -iv" \
+	mv="mv -iv" \
+	rm="rm -vI" \
+	bc="bc -ql" \
+	md="\mkdir -pv" \
+	rd="\rmdir" \
+	yt="youtube-dl --add-metadata -i" \
+	yta="yt -f bestaudio/best" \
+	ffmpeg="ffmpeg -hide_banner" \
+	l="exa -a --icons --group-directories-first" \
+	ll="exa -al --icons --group-directories-first" \
+	ls="exa --icons --group-directories-first" \
+	alias df="df -h" \
+	diff="diff --color=auto" \
+	free="free -h" \
+	df="df -h"
+
+## Force use of certain aliases
+function forceuse() { alias $2="echo use $1;#" }
+
+[ -n "${commands[bat]}"    ] && forceuse bat cat
+[ -n "${commands[rg]}"     ] && forceuse rg grep
+[ -n "${commands[zoxide]}" ] && forceuse zoxide cd # not z, as it may be changed
+forceuse md mkdir
+forceuse rd rmdir
+### I won't change ls to exa cuz exa is longer to type and ls is a more intuitive name
+
+unset -f forceuse
+
+### global aliases (can be used anywhere on the line)
+alias -g \
+	NUL="> /dev/null 2>&1" \
+	X="| xargs" \
+	NE="2> /dev/null" \
+	G="| rg -i"
+
+### Extract
+function ex() {
+	for arg in $@; do
+		if [ -f $arg ] ; then
+			case $arg in
+				*.tar.bz2) tar xjf    $arg ;;
+				*.tar.gz)  tar xzf    $arg ;;
+				*.tar.xz)  tar xvf    $arg ;;
+				*.bz2)     bunzip2    $arg ;;
+				*.rar)     unrar x    $arg ;;
+				*.gz)      gunzip     $arg ;;
+				*.tar)     tar xf     $arg ;;
+				*.tbz2)    tar xjf    $arg ;;
+				*.tgz)     tar xzf    $arg ;;
+				*.zip)     unzip      $arg ;;
+				*.Z)       uncompress $arg ;;
+				*.7z)      7z x       $arg ;;
+				*)         echo "'$arg' cannot be extracted via $0" ;;
+			esac
+		else
+			echo "'$arg' is not a valid file"
+		fi
+	done
+}
+
+function run() {
+	nohup xdg-open $@ > /dev/null 2>&1
+}
+
+function mcd() {
+	\mkdir -pv $@ && \cd "$1"
+}
