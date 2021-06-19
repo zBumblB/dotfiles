@@ -1,0 +1,4 @@
+[user]
+	editor = nvim
+[init]
+	defaultBranch = master

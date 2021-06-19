@@ -1,0 +1,5 @@
+[package]
+disabled = true
+
+[directory]
+format = "[$read_only]($read_only_style)[$path]($style) "

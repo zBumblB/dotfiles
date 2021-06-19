@@ -1,0 +1,83 @@
+#!/bin/sh
+
+file="colors.json"
+
+declare -A colors
+
+colorscheme=`jq -r '.colorscheme' "$file"`
+
+echo "TERM Eterm
+TERM ansi
+TERM *color*
+TERM con[0-9]*x[0-9]*
+TERM cons25
+TERM console
+TERM cygwin
+TERM dtterm
+TERM gnome
+TERM hurd
+TERM jfbterm
+TERM konsole
+TERM kterm
+TERM linux
+TERM linux-c
+TERM mlterm
+TERM putty
+TERM rxvt*
+TERM screen*
+TERM st
+TERM terminator
+TERM tmux*
+TERM vt100
+TERM xterm*
+" > dircolors
+
+function hex() {
+	printf "38;2;%d" 0x${1:1:2}
+	printf ";%d" 0x${1:3:2}
+	printf ";%d" 0x${1:5:2}
+}
+
+IFS=$'\n'
+for i in `jq -r '(.common, .colors."'"$colorscheme"'") | to_entries[] | "\(.key) \(.value)"' "$file"`; do
+	color="${i%% *}"
+	value="${i#* }"
+
+	[[ "$value" =~ '#' ]] && colors["$color"]="$(hex ""$value"")" ||
+		colors["$color"]="$value"
+done
+
+function setcolor() {
+	type="$1"
+	
+	out=""
+	color=""
+	for i in ${arr[@]:1}; do
+		case "$i" in
+			bold) out+="1;" ;;
+			faint) out+="2;" ;;
+			italic) out+="3;" ;;
+			underline) out+="4;" ;;
+			blink) out+="5;" ;;
+			reverse) out+="7;" ;;
+			concealed) out+="8;" ;;
+			*) color="$i"
+		esac
+	done
+	[ -n "$color" ] && out+="${colors["$color"]}"
+	[ "${out[*]: -1}" = ";" ] &&
+		out="${out:0:-1}"
+
+	[ -n "$out" ] &&
+		echo "$type $out" >> dircolors
+}
+
+for i in `jq -r '.dircolors.type | to_entries[] | "\(.key) \(.value)"' "$file"`; do
+	IFS=' ' read -ra arr <<< "$i"
+	setcolor "${arr[0]}"
+done
+
+for i in `jq -r '.dircolors.extensions | to_entries[] | "\(.key) \(.value)"' "$file"`; do
+	IFS=' ' read -ra arr <<< "$i"
+	setcolor ".${arr[0]}"
+done

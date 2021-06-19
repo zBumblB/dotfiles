@@ -1,0 +1,4 @@
+[Desktop Entry]
+Type=Application
+Name=Find
+Exec=/usr/local/bin/st -e FZF_DEFAULT_COMMAND='find -L' fzf | xargs xdg-open
