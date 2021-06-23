@@ -64,3 +64,21 @@
 [submodule ".local/share/nvim/site/pack/packer/start/which-key.nvim/which-key.nvim"]
 	path = .local/share/nvim/site/pack/packer/start/which-key.nvim/which-key.nvim
 	url = https://github.com/folke/which-key.nvim
+[submodule ".config/tmux/plugins/tmux-continuum"]
+	path = .config/tmux/plugins/tmux-continuum
+	url = https://git::@github.com/tmux-plugins/tmux-continuum
+[submodule ".config/tmux/plugins/tmux-gruvbox"]
+	path = .config/tmux/plugins/tmux-gruvbox
+	url = https://git::@github.com/egel/tmux-gruvbox
+[submodule ".config/tmux/plugins/tmux-resurrect"]
+	path = .config/tmux/plugins/tmux-resurrect
+	url = https://git::@github.com/tmux-plugins/tmux-resurrect
+[submodule ".config/tmux/plugins/tmux-sensible"]
+	path = .config/tmux/plugins/tmux-sensible
+	url = https://git::@github.com/tmux-plugins/tmux-sensible
+[submodule ".config/tmux/plugins/tpm"]
+	path = .config/tmux/plugins/tpm
+	url = https://github.com/tmux-plugins/tpm
+[submodule ".config/tmux/plugins/vim-tmux-navigator"]
+	path = .config/tmux/plugins/vim-tmux-navigator
+	url = https://git::@github.com/christoomey/vim-tmux-navigator
