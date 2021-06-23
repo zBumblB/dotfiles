@@ -18,7 +18,8 @@ alias \
 	e="$EDITOR" \
 	g="git" \
 	sdn="sudo shutdown -h now" \
-	p="sudo pacman"
+	p="sudo pacman" \
+	config='/usr/bin/git --git-dir=$HOME/.local/dotfiles --work-tree=$HOME'
 
 alias \
 	cp="cp -iv" \
