@@ -19,7 +19,6 @@ return require('packer').startup(function(use)
 	-- Statusline
 	use {
 		'glepnir/galaxyline.nvim',
-		branch = 'main',
 		requires = 'kyazdani42/nvim-web-devicons',
 		config = function() require'plugins.galaxyline' end,
 	}
