@@ -20,7 +20,7 @@ export GRADLE_USER_HOME="$XDG_DATA_HOME"/gradle
 export _JAVA_OPTIONS=-Djava.util.prefs.userRoot="$XDG_CONFIG_HOME"/java
 export SVDIR=~/.local/service
 
-export WALLPAPER="$XDG_DATA_HOME/wallpaper"
+export WALLPAPER="$HOME/.local/wallpaper"
 export PROJECTS="$HOME/Documents/projects"
 
 # Color man pages
