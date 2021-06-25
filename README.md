@@ -35,6 +35,10 @@ if you now run `config status`, you will probably see a bunch of untracked files
 ```sh
 config config --local status.showUntrackedFiles no
 ```
+you can also filter them with .gitignore. i don't like having .gitignore in my home folder, so i do
+```sh
+config config core.excludesfile ~/.local/dotfiles/gitignore
+```
 ## repo files
 in your home directory, you will see files from this repo such as README.md and .gitmodules. if you don't want them, you can safely delete them.
 
@@ -50,12 +54,12 @@ rm **/.gitkeep .*/**/.gitkeep
 ```
 or
 ```sh
-rm .local/desktop/.gitkeep .local/public/.gitkeep .local/templates/.gitkeep .local/tmp/.gitkeep Documents/.gitkeep Downloads/Browser/.gitkeep Downloads/Limbo/.gitkeep Downloads/Torrents/.gitkeep Music/.gitkeep Pictures/.gitkeep
+rm .local/desktop/.gitkeep .local/public/.gitkeep .local/templates/.gitkeep .local/tmp/.gitkeep Documents/.gitkeep Downloads/Browser/.gitkeep Downloads/Limbo/.gitkeep Downloads/Torrents/.gitkeep Music/.gitkeep Pictures/.gitkeep Videos/.gitkeep
 ```
 ### they will show as deleted in config status
 to get around that, just remove them from git index.
 ```sh
-config update-index --assume-unchanged .local/desktop/.gitkeep .local/public/.gitkeep .local/templates/.gitkeep .local/tmp/.gitkeep Documents/.gitkeep Downloads/Browser/.gitkeep Downloads/Limbo/.gitkeep Downloads/Torrents/.gitkeep Music/.gitkeep Pictures/.gitkeep
+config update-index --assume-unchanged .local/desktop/.gitkeep .local/public/.gitkeep .local/templates/.gitkeep .local/tmp/.gitkeep Documents/.gitkeep Downloads/Browser/.gitkeep Downloads/Limbo/.gitkeep Downloads/Torrents/.gitkeep Music/.gitkeep Pictures/.gitkeep Videos/.gitkeep
 ```
 # notes
 ## it's for x11
