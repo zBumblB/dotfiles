@@ -16,6 +16,6 @@ colors="$XDG_CONFIG_HOME/dircolors/dircolors"
 [ -f "$colors" ] && eval `dircolors --sh "$colors"`
 
 # No programs use xresources
-[[ -f "$xresources" ]] && xrdb -merge -I$x11cfg $xresources
+[[ -f "$xresources" ]] && xrdb -merge -I$x11cfg/xres $xresources
 
 exec dwm

@@ -1,0 +1,4 @@
+#include "colorscheme/gruvbox"
+
+#include "colors"
+#include "zathura"
