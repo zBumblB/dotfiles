@@ -1,0 +1,3 @@
+include colorrc
+
+set selection-clipboard clipboard

@@ -1,0 +1,5 @@
+#!/bin/sh
+
+xrdb -query | rg zathura | sed -E 's/zathura\./set /; s/:\s*(#.*)/ "\1"/' > colorrc
+
+echo 'set recolor "true"' >> colorrc
