@@ -1,6 +1,5 @@
 #define FG #d5c4a1
 #define BG #32302f
-#define ALPHA 0.95
 #define CURSOR #d5c4a1
 
 #define C0 #32302f

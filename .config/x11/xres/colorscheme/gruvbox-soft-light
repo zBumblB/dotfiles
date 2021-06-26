@@ -1,0 +1,20 @@
+#define FG #504945
+#define BG #f2e5bc
+#define CURSOR #504945
+
+#define C0 #f2e5bc
+#define C1 #9d0006
+#define C2 #79740e
+#define C3 #b57614
+#define C4 #076678
+#define C5 #8f3f71
+#define C6 #427b58
+#define C7 #504945
+#define C8 #bdae93
+#define C9 #9d0006
+#define CA #79740e
+#define CB #b57614
+#define CC #076678
+#define CD #8f3f71
+#define CE #427b58
+#define CF #282828
