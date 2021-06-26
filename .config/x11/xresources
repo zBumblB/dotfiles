@@ -1,4 +1,6 @@
+*font: "SauceCodePro Nerd Font Mono:pixelsize=16"
 #include "colorscheme/gruvbox"
 
 #include "colors"
 #include "zathura"
+#include "dmenu"
