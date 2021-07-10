@@ -10,7 +10,7 @@ fi
 x11cfg="$XDG_CONFIG_HOME/x11"
 xprofile="$x11cfg/xprofile"
 xresources="$x11cfg/xresources"
-colors="$XDG_CONFIG_HOME/dircolors/dircolors"
+colors="$XDG_CONFIG_HOME/lscolors/lscolors"
 
 [ -f "$xprofile" ] && . $xprofile
 [ -f "$colors" ] && eval `dircolors --sh "$colors"`
