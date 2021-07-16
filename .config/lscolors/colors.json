@@ -62,7 +62,7 @@
 		"type": {
 			"FILE": "fg",
 			"DIR": "purple bold",
-			"LINK": "blue",
+			"LINK": "_target",
 			"MULTIHARDLINK": "",
 			"FIFO": "",
 			"SOCK": "",

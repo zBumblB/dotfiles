@@ -2,6 +2,6 @@
 
 mkdir -p ~/Pictures/Screenshots
 
-filename=$(date +Screen-%d%m%y-%H%M%S)
+filename="$(date +Screen-%d%m%y-%H%M%S).png"
 
 maim -s > ~/Pictures/Screenshots/"$filename"
