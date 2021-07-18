@@ -1,0 +1,153 @@
+input * {
+	xkb_file ~/.config/keymap.xkb
+	repeat_delay 250
+	repeat_rate 30
+
+	click_method clickfinger
+	drag enabled
+	dwt enabled
+	tap enabled
+}
+
+# set wallpaper
+output * bg ~/.local/wallpaper fill
+
+# logo key
+set $mod Mod4
+
+# terminal
+bindsym $mod+Return exec alacritty
+
+# Kill focused window
+bindsym $mod+q kill
+
+# Start your launcher
+bindsym $mod+f exec wofi --show drun
+
+# Drag floating windows by holding down $mod and left mouse button.
+# Resize them with right mouse button + $mod.
+# Despite the name, also works for non-floating windows.
+# Change normal to inverse to use left mouse button for resizing and right
+# mouse button for dragging.
+floating_modifier $mod normal
+
+# Reload the configuration file
+bindsym $mod+r reload
+
+# Exit sway (logs you out of your Wayland session)
+bindsym $mod+Shift+q exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
+
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+
+bindsym $mod+a workspace 
+bindsym $mod+d workspace 
+bindsym $mod+w workspace 
+bindsym $mod+s workspace 
+bindsym $mod+v workspace 
+bindsym $mod+e workspace 
+bindsym $mod+c workspace 
+bindsym $mod+Shift+a move container to workspace 
+bindsym $mod+Shift+d move container to workspace 
+bindsym $mod+Shift+w move container to workspace 
+bindsym $mod+Shift+s move container to workspace 
+bindsym $mod+Shift+v move container to workspace 
+bindsym $mod+Shift+e move container to workspace 
+bindsym $mod+Shift+c move container to workspace 
+
+# Note: workspaces can have any name you want, not just numbers.
+# We just use 1-10 as the default.
+#
+# Layout stuff:
+#
+# You can "split" the current object of your focus with
+# $mod+b or $mod+v, for horizontal and vertical splits
+# respectively.
+bindsym $mod+b splith
+bindsym $mod+p splitv
+
+# Switch the current container between different layout styles
+#bindsym $mod+s layout stacking
+#bindsym $mod+w layout tabbed
+#bindsym $mod+e layout toggle split
+
+# Make the current focus fullscreen
+bindsym $mod+m fullscreen
+
+# Toggle the current focus between tiling and floating mode
+bindsym $mod+Shift+space floating toggle
+
+# Swap focus between the tiling area and the floating area
+bindsym $mod+space focus mode_toggle
+
+# Move focus to the parent container
+#bindsym $mod+a focus parent
+#
+# Scratchpad:
+#
+# Sway has a "scratchpad", which is a bag of holding for windows.
+# You can send windows there and get them back later.
+
+# Move the currently focused window to the scratchpad
+bindsym $mod+Shift+minus move scratchpad
+
+# Show the next scratchpad window or hide the focused scratchpad window.
+# If there are multiple scratchpad windows, this command cycles through them.
+bindsym $mod+minus scratchpad show
+#
+# Resizing containers:
+#
+mode "resize" {
+# left will shrink the containers width
+# right will grow the containers width
+# up will shrink the containers height
+# down will grow the containers height
+	bindsym h resize shrink width 10px
+		bindsym j resize grow height 10px
+		bindsym k resize shrink height 10px
+		bindsym l resize grow width 10px
+
+
+		bindsym Escape mode "default"
+}
+bindsym $mod+equal mode "resize"
+
+#
+# Status Bar:
+#
+# Read `man 5 sway-bar` for more information about this section.
+bar {
+	mode invisible
+#	position top
+#
+## When the status_command prints a new line to stdout, swaybar updates.
+## The default just shows the current date and time.
+#		status_command while date +'%Y-%m-%d %l:%M:%S %p'; do sleep 1; done
+#
+#		colors {
+#			statusline #ffffff
+#				background #323232
+#				inactive_workspace #32323200 #32323200 #5c5c5c
+#		}
+}
+
+default_border none
+
+gaps inner 10
+
+#xwayland disable
+
+bindsym XF86_MonBrightnessUp exec brightness inc
+bindsym XF86_MonBrightnessDown exec brightness dec
+bindsym XF86_AudioRaiseVolume exec volume inc
+bindsym XF86_AudioLowerVolume exec volume dec
+bindsym XF86_AudioMute exec volume toggle
+
+include /etc/sway/config.d/*

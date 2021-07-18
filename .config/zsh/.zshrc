@@ -1,8 +1,8 @@
 #!/usr/bin/zsh
 
 ### if tmux is executable, X is running, and not inside a tmux session, then attach.
-if [ -n "${commands[tmux]}" ] && [ -n "${DISPLAY}" ]; then
-  [ -z "${TMUX}" ] && exec tmux new -AsMain
+if [ -n "${commands[tmux]}" ] && [ -z "${TMUX}" ]; then
+  exec tmux new -AsMain
 fi
 
 ZSH_DIR="${ZDOTDIR:-$XDG_CONFIG_HOME/zsh}"

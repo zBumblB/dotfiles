@@ -35,4 +35,7 @@ export LESS=-R
 
 
 
-[[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]] && exec startx "$XINITRC" -- -ardelay 250 -arinterval 30
+if [ -z $DISPLAY ] && [ $(tty) = /dev/tty1 ]; then
+	# exec startx "$XINITRC" -- -ardelay 250 -arinterval 30
+	exec sway
+fi

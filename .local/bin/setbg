@@ -9,20 +9,21 @@ done
 
 shift $((OPTIND - 1))
 
-newbg="$WALLPAPER"
+newbg="$HOME/Pictures/wallpapers/used"
 [ -e "$1" ] && newbg="$1" 
 
-[ -d "$newbg" ] && newbg=$(find -L "$newbg" -iregex '.*.\(jpg\|jpeg\|png\|gif\)' -type f | shuf -n 1)
-
+newbg=$(find -L "$newbg" -iregex '.*.\(jpg\|jpeg\|png\|gif\)' -type f | shuf -n 1)
 
 [ -n "$perm" ] && [ -f "$newbg" ] && (
 	rm "$WALLPAPER"
 	ln -s "$newbg" "$WALLPAPER"
 )
 
+notify-send $newbg
 [[ $(file --mime-type -bL "$newbg") =~ image/* ]] && (
 	notify-send "Changing wallpaper..." "$newbg"
-	xwallpaper --zoom "$newbg"
+	swaymsg output '*' bg "$newbg" fill
+	# xwallpaper --zoom "$newbg"
 ) && exit 0
 
 notify-send "Error" "Failed to set wallpaper"
