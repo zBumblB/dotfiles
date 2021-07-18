@@ -5,5 +5,5 @@ len=25
 [ "$1" = "inc" ] && xbacklight -inc $((100 / $len))
 [ "$1" = "dec" ] && xbacklight -dec $((100 / $len))
 
-n=$(light -G | awk "{print $len / 100 * \$1}")
+n=$(xbacklight | awk "{print $len / 100 * \$1}")
 dunstify -r 13579 $(printf '%.0s―' `seq $n`)
