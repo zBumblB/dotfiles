@@ -1,4 +1,0 @@
-[Desktop Entry]
-Type=Application
-Name=Document Viewer
-Exec=/usr/bin/zathura %u

@@ -1,0 +1,12 @@
+stylesheet=style.css
+colors=colors
+
+show=drun
+prompt=Search
+hide_scroll=true
+term=alacritty
+insensitive=true
+gtk_dark=true
+allow_images=true
+allow_markup=true
+key_expand=Tab
