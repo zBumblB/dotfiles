@@ -1,6 +1,0 @@
-#!/bin/sh
-
-out="${XDG_CONFIG_HOME:-$HOME/.config}/zathura/colorrc"
-xrdb -query | rg zathura | sed -E 's/zathura\./set /; s/:\s*(#.*)/ "\1"/' > "$out"
-
-echo 'set recolor "true"' >> "$out"

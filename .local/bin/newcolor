@@ -1,0 +1,5 @@
+#!/bin/sh
+
+newbg="$1"
+[ -z "$newbg" ] && newbg="$(setbg -p)"
+wal -tns -a 95 -i "$newbg"

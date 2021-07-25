@@ -1,3 +1,3 @@
-include colorrc
+include ../../.cache/wal/colors-zathura
 
 set selection-clipboard clipboard

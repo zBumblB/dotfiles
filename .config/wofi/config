@@ -1,5 +1,5 @@
 stylesheet=style.css
-colors=colors
+color=.cache/wal/colors-wofi
 
 show=drun
 prompt=Search

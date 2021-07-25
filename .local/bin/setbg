@@ -19,12 +19,9 @@ newbg=$(find -L "$newbg" -iregex '.*.\(jpg\|jpeg\|png\|gif\)' -type f | shuf -n 
 	ln -s "$newbg" "$WALLPAPER"
 )
 
-notify-send $newbg
 [[ $(file --mime-type -bL "$newbg") =~ image/* ]] && (
 	notify-send "Changing wallpaper..." "$newbg"
-	swaymsg output '*' bg "$newbg" fill
-	# xwallpaper --zoom "$newbg"
-) && exit 0
-
-notify-send "Error" "Failed to set wallpaper"
-exit 1
+	swaymsg output '*' bg "$newbg" fill > /dev/null 2>&1
+	xwallpaper --zoom "$newbg"
+	echo "$newbg"
+) || notify-send "Error" "Failed to set wallpaper"

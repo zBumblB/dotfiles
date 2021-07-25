@@ -150,4 +150,4 @@ bindsym XF86_AudioRaiseVolume exec volume inc
 bindsym XF86_AudioLowerVolume exec volume dec
 bindsym XF86_AudioMute exec volume toggle
 
-include /etc/sway/config.d/*
+exec wal -R
