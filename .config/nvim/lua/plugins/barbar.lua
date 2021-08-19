@@ -1,7 +1,7 @@
-remap('n', '<A-h>', ':BufferPrevious<CR>')
-remap('n', '<A-l>', ':BufferNext<CR>')
-remap('n', '<A-H>', ':BufferMovePrevious<CR>')
-remap('n', '<A-L>', ':BufferMoveNext<CR>')
+remap('n', '<A-k>', ':BufferPrevious<CR>')
+remap('n', '<A-j>', ':BufferNext<CR>')
+remap('n', '<A-K>', ':BufferMovePrevious<CR>')
+remap('n', '<A-J>', ':BufferMoveNext<CR>')
 remap('n', '<A-x>', ':BufferClose<CR>')
 remap('n', '<A-s>', ':BufferPick<CR>')
 

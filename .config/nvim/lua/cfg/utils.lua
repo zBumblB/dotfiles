@@ -18,3 +18,8 @@ function remap(mode, binding, action, cfg)
     cfg = cfg or {noremap = true, silent = true}
     vim.api.nvim_set_keymap(mode, binding, action, cfg)
 end
+
+-- replace termcodes
+function t(str)
+    return vim.api.nvim_replace_termcodes(str, true, true, true)
+end

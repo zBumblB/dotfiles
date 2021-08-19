@@ -74,3 +74,9 @@ remap('n', '<S-TAB>', ':bprev<CR>')
 -- Move block of text in visual mode
 remap('x', 'K', ':move \'<-2<CR>gv-gv')
 remap('x', 'J', ':move \'>+1<CR>gv-gv')
+
+-- Escape exit pum
+function _G.smart_exit()
+	return vim.v.completed_item.abbr ~= nil and t'<C-e>' or t'<esc>'
+end
+remap('i', '<esc>', 'v:lua.smart_exit()', {expr = true, noremap = true})

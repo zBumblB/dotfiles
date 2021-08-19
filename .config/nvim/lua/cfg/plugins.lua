@@ -11,7 +11,6 @@ end
 
 vim.cmd('autocmd BufWritePost plugins.lua PackerCompile')
 
-
 return require('packer').startup(function(use)
 	-- Packer can manage itself as an optional plugin
 	use 'wbthomason/packer.nvim'
@@ -59,39 +58,56 @@ return require('packer').startup(function(use)
 		config = function() require'plugins.autopairs' end,
 	}
 
+	use 'tpope/vim-surround'
+
 	use {
 		'nvim-telescope/telescope.nvim',
 		requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}},
 		config = function() require'plugins.telescope' end,
 	}
 
+	-- use {
+	-- 	'ms-jpq/coq_nvim',
+	-- 	requires = {{'neovim/nvim-lspconfig'}, {'ms-jpq/coq.artifacts'}},
+	-- 	config = function() require'plugins.coq' end,
+	-- }
+	
 	use {
 		'neovim/nvim-lspconfig',
-	}
-
-	use {
-		'kabouzeid/nvim-lspinstall',
 		config = function() require'plugins.lsp' end,
 	}
 
 	use {
-		'nvim-lua/completion-nvim',
-		config = function() require'plugins.completion' end,
+		'hrsh7th/nvim-compe',
+		config = function() require'plugins.compe' end,
 	}
 
+	-- use {
+	-- 	'kabouzeid/nvim-lspinstall',
+	-- 	config = function() require'plugins.lsp' end,
+	-- }
+
+	-- use {
+	-- 	'nvim-lua/completion-nvim',
+	-- 	config = function() require'plugins.completion' end,
+	-- }
+
+
+	-- use {
+	-- 	'norcalli/snippets.nvim',
+	-- 	config = function() require'plugins.snippets' end,
+	-- }
 
 	use {
-		'norcalli/snippets.nvim',
-		config = function() require'plugins.snippets' end,
+		'L3MON4D3/LuaSnip',
+		config = function() require'plugins.luasnip' end,
 	}
 
-	use {
-		'glepnir/lspsaga.nvim',
-		config = function() require'plugins.lspsaga' end,
-		requires = 'neovim/nvim-lspconfig'
-	}
-
-	use 'tpope/vim-surround'
+	-- use {
+	-- 	'glepnir/lspsaga.nvim',
+	-- 	config = function() require'plugins.lspsaga' end,
+	-- 	requires = 'neovim/nvim-lspconfig'
+	-- }
 
 	use {
 		'nvim-treesitter/nvim-treesitter',
