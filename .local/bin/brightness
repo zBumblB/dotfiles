@@ -1,9 +1,0 @@
-#!/bin/sh
-
-len=25
-
-[ "$1" = "inc" ] && light -A $((100 / $len))
-[ "$1" = "dec" ] && light -U $((100 / $len))
-
-n=$(light -G | awk "{print $len / 100 * \$1}")
-dunstify -r 13579 $(printf '%.0s―' `seq $n`)
