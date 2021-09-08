@@ -75,6 +75,10 @@ hints:
 window.dynamic_title: true
 save_to_clipboard: true
 
+cursor:
+  style:
+    shape: Beam
+
 key_bindings:
   - { key: V, mods: Alt, action: Paste }
   - { key: C, mods: Alt, action: Copy }
