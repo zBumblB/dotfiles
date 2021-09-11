@@ -73,7 +73,7 @@ hints:
        mods: Alt
 
 window.dynamic_title: true
-save_to_clipboard: true
+# save_to_clipboard: true
 
 cursor:
   style:
