@@ -14,6 +14,7 @@ Videos
 !.config/npm
 !.config/nvim
 !.config/tmux
+.config/tmux/plugins
 !.config/wal
 !.config/wget
 !.config/zathura
