@@ -3,6 +3,8 @@ Pictures
 Documents
 Downloads
 Desktop
+Programming
+Videos
 
 .local/state
 .local/share/*
@@ -12,6 +14,9 @@ Desktop
 .pki
 .mozilla
 .minecraft
+.steam
+.steampid
+.steampath
 GPUCache
 .profile
 .local/xkdb

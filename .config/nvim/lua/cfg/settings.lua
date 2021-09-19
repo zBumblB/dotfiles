@@ -3,7 +3,8 @@
 local cmd = vim.cmd
 
 vim.wo.list = true -- display listchars
-vim.o.listchars = 'tab:  ▸,trail:·,extends:#,nbsp:·' -- maybe "¬" for extends
+-- vim.o.listchars = 'tab:  ▸,trail:·,extends:#,nbsp:·' -- maybe "¬" for extends
+vim.o.listchars = 'tab:  ,trail:·,extends:¬,nbsp:·'
 vim.wo.number = true -- displays nr of curr line offset to other nrs
 vim.wo.relativenumber = true -- show line numbers relative to current line
 vim.wo.wrap = false -- display long lines as just one line
@@ -12,8 +13,8 @@ vim.o.smartcase = true -- case sensitive iff there's an uppercase letter in sear
 vim.o.clipboard = 'unnamedplus' -- use system clipboard
 vim.wo.foldmethod = 'marker' -- fold on markers ('{{{' and '}}})
 vim.o.mouse = 'a' -- enable mouse support
-cmd('set ts=4') -- tabstop - insert 4 spaces for a tab
-cmd('set sw=4') -- shiftwidth - number of spaces used for indenting
+cmd('set ts=2') -- tabstop - insert 4 spaces for a tab
+cmd('set sw=2') -- shiftwidth - number of spaces used for indenting
 vim.o.shiftround = true -- round indent to multiple of shiftwidth (including < and >)
 vim.o.scrolloff = 4 -- keep some lines above and bellow cursor when scrolling
 -- vim.o.formatoptions+='1' -- TODO
