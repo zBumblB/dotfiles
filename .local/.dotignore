@@ -6,6 +6,22 @@ Desktop
 Programming
 Videos
 
+.config/*
+!.config/alacritty
+!.config/git
+!.config/keepassxc
+!.config/lscolors
+!.config/npm
+!.config/nvim
+!.config/tmux
+!.config/wal
+!.config/wget
+!.config/zathura
+!.config/zsh
+!.config/keymap.xkb
+!.config/starship.toml
+!.config/user-dirs.dirs
+
 .local/state
 .local/share/*
 !.local/share/fonts
@@ -22,7 +38,6 @@ GPUCache
 .local/xkdb
 .lunarclient
 .kde4
-.config/*
 .local/backup
 .local/dotfiles
 .java
